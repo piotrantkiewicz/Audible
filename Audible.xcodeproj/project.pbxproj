@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */; };
+		AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */; };
+		AEDC7DF92BE4FDC600FA7D2B /* AudibleListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */; };
+		AEDC7DFA2BE4FDC600FA7D2B /* AudibleListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDC7DF82BE4FDC600FA7D2B /* AudibleListItemCell.xib */; };
 		AEE1E82A2BE3ADC70054FA50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1E8292BE3ADC70054FA50 /* AppDelegate.swift */; };
 		AEE1E82C2BE3ADC70054FA50 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1E82B2BE3ADC70054FA50 /* SceneDelegate.swift */; };
 		AEE1E8312BE3ADC70054FA50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AEE1E8302BE3ADC70054FA50 /* Base */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListCell.swift; sourceTree = "<group>"; };
+		AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleListCell.xib; sourceTree = "<group>"; };
+		AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListItemCell.swift; sourceTree = "<group>"; };
+		AEDC7DF82BE4FDC600FA7D2B /* AudibleListItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleListItemCell.xib; sourceTree = "<group>"; };
 		AEE1E8262BE3ADC70054FA50 /* Audible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEE1E8292BE3ADC70054FA50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEE1E82B2BE3ADC70054FA50 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */,
+				AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */,
+			);
+			path = AudibleListCell;
+			sourceTree = "<group>";
+		};
+		AEDC7DF62BE4FD9A00FA7D2B /* AudibleListItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */,
+				AEDC7DF82BE4FDC600FA7D2B /* AudibleListItemCell.xib */,
+			);
+			path = AudibleListItemCell;
+			sourceTree = "<group>";
+		};
 		AEE1E81D2BE3ADC60054FA50 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +84,8 @@
 		AEE1E8282BE3ADC70054FA50 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				AEDC7DF62BE4FD9A00FA7D2B /* AudibleListItemCell */,
+				AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */,
 				AEE1E8292BE3ADC70054FA50 /* AppDelegate.swift */,
 				AEE1E82B2BE3ADC70054FA50 /* SceneDelegate.swift */,
 				AEE1E82F2BE3ADC70054FA50 /* Main.storyboard */,
@@ -130,6 +158,8 @@
 			files = (
 				AEE1E8332BE3ADC80054FA50 /* Assets.xcassets in Resources */,
 				AEE1E8362BE3ADC80054FA50 /* Base in Resources */,
+				AEDC7DFA2BE4FDC600FA7D2B /* AudibleListItemCell.xib in Resources */,
+				AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */,
 				AEE1E8312BE3ADC70054FA50 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,7 +174,9 @@
 				AEE1E82A2BE3ADC70054FA50 /* AppDelegate.swift in Sources */,
 				AEE1E82C2BE3ADC70054FA50 /* SceneDelegate.swift in Sources */,
 				AEE1E83E2BE3AE580054FA50 /* AudibleViewController.swift in Sources */,
+				AEDC7DF92BE4FDC600FA7D2B /* AudibleListItemCell.swift in Sources */,
 				AEE1E8402BE3B0880054FA50 /* AudibleListViewController.swift in Sources */,
+				AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
