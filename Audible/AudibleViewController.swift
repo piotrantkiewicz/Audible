@@ -36,21 +36,21 @@ class AudibleViewController: UIViewController {
         
         lists.append(AudibleList(
             image: .whyWeSleep,
-            title: "Why We Sleep",
+            title: "Why We Sleep (3.7)",
             description: "Unlocking the Power of Sleep and Dreams",
             reviews: whyWeSleepReviews()
         ))
         
         lists.append(AudibleList(
             image: .dopamineNation,
-            title: "Dopamine Nation",
+            title: "Dopamine Nation (4.2)",
             description: "Finding Balance in the Age of Indulgence",
             reviews: dopamineNationReviews()
         ))
         
         lists.append(AudibleList(
             image: .startWithWhy,
-            title: "Start with Why",
+            title: "Start with Why (4.5)",
             description: "How Great Leaders Inspire Everyone to Take Action",
             reviews: startWithWhyReviews()
         ))
