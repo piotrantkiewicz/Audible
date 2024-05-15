@@ -26,13 +26,23 @@
                                 <rect key="frame" x="0.0" y="109" width="393" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsf-h3-hMP">
+                                <rect key="frame" x="161.66666666666666" y="763.66666666666663" width="69.666666666666657" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Home"/>
+                                <connections>
+                                    <action selector="homeBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ASy-g7-Hd9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IPs-Gr-jqj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="1o9-92-Vr0"/>
                             <constraint firstItem="oeq-F3-Ta7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="COD-5i-aqC"/>
+                            <constraint firstItem="Xsf-h3-hMP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mjr-pm-UMf"/>
                             <constraint firstAttribute="bottom" secondItem="oeq-F3-Ta7" secondAttribute="bottom" id="pcy-HG-oL1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xsf-h3-hMP" secondAttribute="bottom" constant="20" id="rQm-DY-V9d"/>
                             <constraint firstItem="IPs-Gr-jqj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s49-Vp-N2Z"/>
                             <constraint firstItem="oeq-F3-Ta7" firstAttribute="top" secondItem="IPs-Gr-jqj" secondAttribute="bottom" constant="20" id="ule-bg-8jW"/>
                             <constraint firstItem="oeq-F3-Ta7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zdc-1d-76p"/>
@@ -138,6 +148,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddu-MR-Gba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877" y="-2"/>
+        </scene>
+        <!--Audible Home View Controller-->
+        <scene sceneID="ciG-fW-g8H">
+            <objects>
+                <viewController storyboardIdentifier="AudibleHomeViewController" id="af7-YU-x52" customClass="AudibleHomeViewController" customModule="Audible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dtg-kD-gZA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0C-wY-PE1">
+                                <rect key="frame" x="174" y="71" width="45" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4B-Lx-Ekg">
+                                <rect key="frame" x="8" y="44" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="bwC-Kl-KbT"/>
+                                    <constraint firstAttribute="height" constant="44" id="kna-mo-gto"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="exit"/>
+                                <connections>
+                                    <action selector="backTapped:" destination="af7-YU-x52" eventType="touchUpInside" id="gCy-5y-hpb"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FRd-2Y-RnK">
+                                <rect key="frame" x="0.0" y="109" width="393" height="743"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="elp-kw-bXX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G4B-Lx-Ekg" firstAttribute="leading" secondItem="elp-kw-bXX" secondAttribute="leading" constant="8" id="7gp-eh-2Dk"/>
+                            <constraint firstItem="FRd-2Y-RnK" firstAttribute="leading" secondItem="elp-kw-bXX" secondAttribute="leading" id="Aaw-hZ-VHR"/>
+                            <constraint firstItem="f0C-wY-PE1" firstAttribute="centerX" secondItem="dtg-kD-gZA" secondAttribute="centerX" id="O0n-fr-gAp"/>
+                            <constraint firstItem="FRd-2Y-RnK" firstAttribute="top" secondItem="f0C-wY-PE1" secondAttribute="bottom" constant="20" id="VS0-wt-P5K"/>
+                            <constraint firstItem="f0C-wY-PE1" firstAttribute="top" secondItem="elp-kw-bXX" secondAttribute="top" constant="12" id="W1Q-ho-euz"/>
+                            <constraint firstItem="G4B-Lx-Ekg" firstAttribute="top" secondItem="dtg-kD-gZA" secondAttribute="top" constant="44" id="Ytb-cK-DRr"/>
+                            <constraint firstItem="elp-kw-bXX" firstAttribute="trailing" secondItem="FRd-2Y-RnK" secondAttribute="trailing" id="j7x-tr-1GB"/>
+                            <constraint firstAttribute="bottom" secondItem="FRd-2Y-RnK" secondAttribute="bottom" id="pq4-F5-Wk5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="FRd-2Y-RnK" id="vAE-N1-Rur"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtt-Hu-S80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1655.7251908396945" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>

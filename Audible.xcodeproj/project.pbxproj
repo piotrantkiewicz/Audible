@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE54883D2BF4BA8B005F6C17 /* AudibleHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54883C2BF4BA8B005F6C17 /* AudibleHomeViewController.swift */; };
+		AE5488412BF4C134005F6C17 /* HomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5488402BF4C134005F6C17 /* HomeHeaderCell.xib */; };
+		AE5488422BF4C134005F6C17 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE54883F2BF4C134005F6C17 /* HomeHeaderCell.swift */; };
+		AE5488462BF4C76E005F6C17 /* HomeBookCoversCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE5488452BF4C76E005F6C17 /* HomeBookCoversCell.xib */; };
+		AE5488472BF4C76E005F6C17 /* HomeBookCoversCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5488442BF4C76E005F6C17 /* HomeBookCoversCell.swift */; };
+		AE54884B2BF4D085005F6C17 /* BookCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */; };
+		AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5488492BF4D085005F6C17 /* BookCoverCell.swift */; };
 		AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */; };
 		AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */; };
 		AEDC7DF92BE4FDC600FA7D2B /* AudibleListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */; };
@@ -21,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE54883C2BF4BA8B005F6C17 /* AudibleHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleHomeViewController.swift; sourceTree = "<group>"; };
+		AE54883F2BF4C134005F6C17 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
+		AE5488402BF4C134005F6C17 /* HomeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCell.xib; sourceTree = "<group>"; };
+		AE5488442BF4C76E005F6C17 /* HomeBookCoversCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookCoversCell.swift; sourceTree = "<group>"; };
+		AE5488452BF4C76E005F6C17 /* HomeBookCoversCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBookCoversCell.xib; sourceTree = "<group>"; };
+		AE5488492BF4D085005F6C17 /* BookCoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCell.swift; sourceTree = "<group>"; };
+		AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCoverCell.xib; sourceTree = "<group>"; };
 		AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListCell.swift; sourceTree = "<group>"; };
 		AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleListCell.xib; sourceTree = "<group>"; };
 		AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListItemCell.swift; sourceTree = "<group>"; };
@@ -47,6 +61,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE54883E2BF4C0C1005F6C17 /* HomeHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE54883F2BF4C134005F6C17 /* HomeHeaderCell.swift */,
+				AE5488402BF4C134005F6C17 /* HomeHeaderCell.xib */,
+			);
+			path = HomeHeaderCell;
+			sourceTree = "<group>";
+		};
+		AE5488432BF4C708005F6C17 /* HomeBookCoversCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE5488482BF4D04A005F6C17 /* BookCoverCell */,
+				AE5488442BF4C76E005F6C17 /* HomeBookCoversCell.swift */,
+				AE5488452BF4C76E005F6C17 /* HomeBookCoversCell.xib */,
+			);
+			path = HomeBookCoversCell;
+			sourceTree = "<group>";
+		};
+		AE5488482BF4D04A005F6C17 /* BookCoverCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE5488492BF4D085005F6C17 /* BookCoverCell.swift */,
+				AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */,
+			);
+			path = BookCoverCell;
+			sourceTree = "<group>";
+		};
 		AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,18 +126,45 @@
 		AEE1E8282BE3ADC70054FA50 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
-				AEDC7DF62BE4FD9A00FA7D2B /* AudibleListItemCell */,
-				AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */,
+				AEFD4C192BF41B5F00CBA2EB /* AudibleHomeViewController */,
+				AEFD4C182BF41B1C00CBA2EB /* AudibleListViewController */,
+				AEFD4C172BF41B0500CBA2EB /* AudibleViewController */,
 				AEE1E8292BE3ADC70054FA50 /* AppDelegate.swift */,
 				AEE1E82B2BE3ADC70054FA50 /* SceneDelegate.swift */,
 				AEE1E82F2BE3ADC70054FA50 /* Main.storyboard */,
-				AEE1E83F2BE3B0880054FA50 /* AudibleListViewController.swift */,
-				AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */,
 				AEE1E8322BE3ADC80054FA50 /* Assets.xcassets */,
 				AEE1E8342BE3ADC80054FA50 /* LaunchScreen.storyboard */,
 				AEE1E8372BE3ADC80054FA50 /* Info.plist */,
 			);
 			path = Audible;
+			sourceTree = "<group>";
+		};
+		AEFD4C172BF41B0500CBA2EB /* AudibleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */,
+				AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */,
+			);
+			path = AudibleViewController;
+			sourceTree = "<group>";
+		};
+		AEFD4C182BF41B1C00CBA2EB /* AudibleListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AEDC7DF62BE4FD9A00FA7D2B /* AudibleListItemCell */,
+				AEE1E83F2BE3B0880054FA50 /* AudibleListViewController.swift */,
+			);
+			path = AudibleListViewController;
+			sourceTree = "<group>";
+		};
+		AEFD4C192BF41B5F00CBA2EB /* AudibleHomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE5488432BF4C708005F6C17 /* HomeBookCoversCell */,
+				AE54883E2BF4C0C1005F6C17 /* HomeHeaderCell */,
+				AE54883C2BF4BA8B005F6C17 /* AudibleHomeViewController.swift */,
+			);
+			path = AudibleHomeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,9 +227,12 @@
 			files = (
 				AEE1E8332BE3ADC80054FA50 /* Assets.xcassets in Resources */,
 				AEE1E8362BE3ADC80054FA50 /* Base in Resources */,
+				AE5488462BF4C76E005F6C17 /* HomeBookCoversCell.xib in Resources */,
 				AEDC7DFA2BE4FDC600FA7D2B /* AudibleListItemCell.xib in Resources */,
+				AE54884B2BF4D085005F6C17 /* BookCoverCell.xib in Resources */,
 				AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */,
 				AEE1E8312BE3ADC70054FA50 /* Base in Resources */,
+				AE5488412BF4C134005F6C17 /* HomeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +244,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE1E82A2BE3ADC70054FA50 /* AppDelegate.swift in Sources */,
+				AE5488422BF4C134005F6C17 /* HomeHeaderCell.swift in Sources */,
+				AE5488472BF4C76E005F6C17 /* HomeBookCoversCell.swift in Sources */,
 				AEE1E82C2BE3ADC70054FA50 /* SceneDelegate.swift in Sources */,
 				AEE1E83E2BE3AE580054FA50 /* AudibleViewController.swift in Sources */,
 				AEDC7DF92BE4FDC600FA7D2B /* AudibleListItemCell.swift in Sources */,
+				AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */,
 				AEE1E8402BE3B0880054FA50 /* AudibleListViewController.swift in Sources */,
+				AE54883D2BF4BA8B005F6C17 /* AudibleHomeViewController.swift in Sources */,
 				AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

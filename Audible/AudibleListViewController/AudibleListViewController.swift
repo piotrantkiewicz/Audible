@@ -5,6 +5,7 @@ struct AudibleList {
     let title: String
     let description: String
     let reviews: [String]
+    let rating: String
 }
 
 class AudibleListViewController: UIViewController {

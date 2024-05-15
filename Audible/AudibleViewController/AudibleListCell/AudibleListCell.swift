@@ -7,6 +7,6 @@ class AudibleListCell: UITableViewCell {
     
     func configure(with audibleList: AudibleList) {
         iconImageView.image = audibleList.image
-        titleLbl.text = audibleList.title
+        titleLbl.text = "\(audibleList.title) (\(audibleList.rating))"
     }
 }

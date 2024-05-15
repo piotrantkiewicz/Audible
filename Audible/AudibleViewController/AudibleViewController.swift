@@ -36,23 +36,26 @@ class AudibleViewController: UIViewController {
         
         lists.append(AudibleList(
             image: .whyWeSleep,
-            title: "Why We Sleep (3.7)",
+            title: "Why We Sleep",
             description: "Unlocking the Power of Sleep and Dreams",
-            reviews: whyWeSleepReviews()
+            reviews: whyWeSleepReviews(),
+            rating: "3.7"
         ))
         
         lists.append(AudibleList(
             image: .dopamineNation,
-            title: "Dopamine Nation (4.2)",
+            title: "Dopamine Nation",
             description: "Finding Balance in the Age of Indulgence",
-            reviews: dopamineNationReviews()
+            reviews: dopamineNationReviews(),
+            rating: "4.2"
         ))
         
         lists.append(AudibleList(
             image: .startWithWhy,
-            title: "Start with Why (4.5)",
+            title: "Start with Why",
             description: "How Great Leaders Inspire Everyone to Take Action",
-            reviews: startWithWhyReviews()
+            reviews: startWithWhyReviews(),
+            rating: "4.5"
         ))
         
         return lists
@@ -96,6 +99,16 @@ class AudibleViewController: UIViewController {
         
         return reviews
     }
+    
+    @IBAction func homeBtnTapped(_ sender: Any) {
+        let audibleHomeViewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "AudibleHomeViewController") as! AudibleHomeViewController
+        
+        audibleHomeViewController.modalPresentationStyle = .fullScreen
+        
+        present(audibleHomeViewController, animated: true)
+    }
+    
 }
 
 extension AudibleViewController: UITableViewDataSource {
