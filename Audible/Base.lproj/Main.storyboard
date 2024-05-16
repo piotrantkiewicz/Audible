@@ -100,15 +100,21 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Review" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-Pr-K5r">
-                                                <rect key="frame" x="60" y="15.666666666666629" width="261" height="21"/>
+                                                <rect key="frame" x="60" y="15.666666666666629" width="271" height="21"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edx-7o-Z0M">
-                                                <rect key="frame" x="321" y="8.6666666666666288" width="58" height="35"/>
+                                                <rect key="frame" x="331" y="4" width="60" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="0Sv-a7-gZX"/>
+                                                    <constraint firstAttribute="height" constant="44" id="1HW-0M-onY"/>
+                                                </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Post">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="postBtnTapped:" destination="4W1-jT-UsS" eventType="touchUpInside" id="1yI-kt-oiI"/>
                                                 </connections>
@@ -120,8 +126,8 @@
                                             <constraint firstItem="9Bi-Pr-K5r" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="71T-OP-yPb"/>
                                             <constraint firstAttribute="height" constant="52" id="PUO-A8-oTC"/>
                                             <constraint firstItem="Edx-7o-Z0M" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="UZz-U2-qyu"/>
+                                            <constraint firstAttribute="trailing" secondItem="Edx-7o-Z0M" secondAttribute="trailing" constant="2" id="Yjp-qW-B2h"/>
                                             <constraint firstItem="Edx-7o-Z0M" firstAttribute="leading" secondItem="9Bi-Pr-K5r" secondAttribute="trailing" id="ajz-6C-wy4"/>
-                                            <constraint firstAttribute="trailing" secondItem="Edx-7o-Z0M" secondAttribute="trailing" constant="14" id="cqS-ne-D5u"/>
                                             <constraint firstItem="IBZ-rK-pC9" firstAttribute="leading" secondItem="1fY-rI-GbG" secondAttribute="leading" constant="4" id="gBg-8a-5We"/>
                                             <constraint firstItem="IBZ-rK-pC9" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="siM-hu-p1w"/>
                                         </constraints>

@@ -12,6 +12,7 @@ class AudibleBookDetailsCell: UITableViewCell {
         
         playButton.layer.cornerRadius = 22
         playButton.clipsToBounds = true
+        selectionStyle = .none
     }
     
     func configure(with audibleList: AudibleList) {

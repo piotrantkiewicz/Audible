@@ -6,5 +6,6 @@ class AudibleListItemCell: UITableViewCell {
     
     func configure(with review: String) {
         titleLbl.text = review
+        selectionStyle = .none
     }
 }

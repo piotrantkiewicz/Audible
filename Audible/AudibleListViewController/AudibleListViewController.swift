@@ -4,7 +4,7 @@ struct AudibleList {
     let image: UIImage
     let title: String
     let description: String
-    let reviews: [String]
+    var reviews: [String]
     let rating: String
 }
 
@@ -27,10 +27,38 @@ class AudibleListViewController: UIViewController {
         
         configureTableView()
         configureKeyboard()
+        configureAddReviewView()
+        configureTextField()
+        setAddNewReviewButton(enabled: false)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func configureTextField() {
+        textField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
+    }
+    
+    private var isNewReviewValid: Bool {
+        guard let text = textField.text else { return false }
+        return !text.isEmpty
+    }
+    
+    @objc private func didChangeText() {
+        setAddNewReviewButton(enabled: isNewReviewValid)
+    }
+    private func setAddNewReviewButton(enabled isEnabled:Bool) {
+        postBtn.isPointerInteractionEnabled = isEnabled
+        postBtn.tintColor = isEnabled ? .tintColor : .gray.withAlphaComponent(0.5)
+    }
+    
+    private func configureAddReviewView() {
+        addReviewView.layer.shadowColor = UIColor.black.withAlphaComponent(0.25).cgColor
+        addReviewView.layer.shadowOffset = .zero
+        addReviewView.layer.shadowRadius = 18.2
+        addReviewView.layer.shadowPath = UIBezierPath(roundedRect: addReviewView.bounds, cornerRadius: addReviewView.layer.cornerRadius).cgPath
+        addReviewView.layer.shadowOpacity = 1
     }
     
     private func configureKeyboard() {
@@ -45,7 +73,9 @@ class AudibleListViewController: UIViewController {
               let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
         else { return }
         
-        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
+        let isKeyboardHidden = endFrame.origin.y >= UIScreen.main.bounds.size.height
+        
+        if isKeyboardHidden {
             addReviewSaveAreaViewBottomConstraint.constant = 0
             tableViewBottomConstraint.constant = 0
         } else {
@@ -54,7 +84,10 @@ class AudibleListViewController: UIViewController {
         }
         
         UIView.animate(withDuration: duration) {
+            self.postBtn.alpha = isKeyboardHidden ? 0 : 1
             self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.tableView.scrollToRow(at: IndexPath(row: self.audibleList.reviews.count - 1, section: 1), at: .bottom, animated: true)
         }
     }
     
@@ -75,6 +108,17 @@ class AudibleListViewController: UIViewController {
     }
     
     @IBAction func postBtnTapped(_ sender: Any) {
+        guard isNewReviewValid, let text = textField.text else { return }
+        
+        let itemTrimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        audibleList.reviews.append(itemTrimmed)
+        
+        let indexPath = IndexPath(row: audibleList.reviews.count - 1, section: 1)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        
+        textField.text = ""
+        setAddNewReviewButton(enabled: false)
     }
     
     
@@ -125,5 +169,12 @@ extension AudibleListViewController: UITableViewDelegate {
         default:
             return 44
         }
+    }
+}
+
+extension AudibleListViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
     }
 }
