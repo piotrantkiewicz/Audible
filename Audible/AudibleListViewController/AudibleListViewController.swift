@@ -42,7 +42,7 @@ class AudibleListViewController: UIViewController {
     
     private var isNewReviewValid: Bool {
         guard let text = textField.text else { return false }
-        return !text.isEmpty
+        return !text.isEmpty && text.count >= 4
     }
     
     @objc private func didChangeText() {
