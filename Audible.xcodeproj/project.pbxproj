@@ -14,6 +14,8 @@
 		AE5488472BF4C76E005F6C17 /* HomeBookCoversCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5488442BF4C76E005F6C17 /* HomeBookCoversCell.swift */; };
 		AE54884B2BF4D085005F6C17 /* BookCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */; };
 		AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5488492BF4D085005F6C17 /* BookCoverCell.swift */; };
+		AED27FC22BF6059900816B36 /* AudibleBookDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED27FC02BF6059900816B36 /* AudibleBookDetailsCell.swift */; };
+		AED27FC32BF6059900816B36 /* AudibleBookDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED27FC12BF6059900816B36 /* AudibleBookDetailsCell.xib */; };
 		AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */; };
 		AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */; };
 		AEDC7DF92BE4FDC600FA7D2B /* AudibleListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */; };
@@ -35,6 +37,8 @@
 		AE5488452BF4C76E005F6C17 /* HomeBookCoversCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeBookCoversCell.xib; sourceTree = "<group>"; };
 		AE5488492BF4D085005F6C17 /* BookCoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCell.swift; sourceTree = "<group>"; };
 		AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCoverCell.xib; sourceTree = "<group>"; };
+		AED27FC02BF6059900816B36 /* AudibleBookDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleBookDetailsCell.swift; sourceTree = "<group>"; };
+		AED27FC12BF6059900816B36 /* AudibleBookDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleBookDetailsCell.xib; sourceTree = "<group>"; };
 		AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListCell.swift; sourceTree = "<group>"; };
 		AEDC7DF32BE4F7C900FA7D2B /* AudibleListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleListCell.xib; sourceTree = "<group>"; };
 		AEDC7DF72BE4FDC600FA7D2B /* AudibleListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListItemCell.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 				AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */,
 			);
 			path = BookCoverCell;
+			sourceTree = "<group>";
+		};
+		AED27FBF2BF6056600816B36 /* AudibleBookDetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				AED27FC02BF6059900816B36 /* AudibleBookDetailsCell.swift */,
+				AED27FC12BF6059900816B36 /* AudibleBookDetailsCell.xib */,
+			);
+			path = AudibleBookDetailsCell;
 			sourceTree = "<group>";
 		};
 		AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */ = {
@@ -142,6 +155,7 @@
 		AEFD4C172BF41B0500CBA2EB /* AudibleViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AED27FBF2BF6056600816B36 /* AudibleBookDetailsCell */,
 				AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */,
 				AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */,
 			);
@@ -231,6 +245,7 @@
 				AEDC7DFA2BE4FDC600FA7D2B /* AudibleListItemCell.xib in Resources */,
 				AE54884B2BF4D085005F6C17 /* BookCoverCell.xib in Resources */,
 				AEDC7DF52BE4F7C900FA7D2B /* AudibleListCell.xib in Resources */,
+				AED27FC32BF6059900816B36 /* AudibleBookDetailsCell.xib in Resources */,
 				AEE1E8312BE3ADC70054FA50 /* Base in Resources */,
 				AE5488412BF4C134005F6C17 /* HomeHeaderCell.xib in Resources */,
 			);
@@ -245,6 +260,7 @@
 			files = (
 				AEE1E82A2BE3ADC70054FA50 /* AppDelegate.swift in Sources */,
 				AE5488422BF4C134005F6C17 /* HomeHeaderCell.swift in Sources */,
+				AED27FC22BF6059900816B36 /* AudibleBookDetailsCell.swift in Sources */,
 				AE5488472BF4C76E005F6C17 /* HomeBookCoversCell.swift in Sources */,
 				AEE1E82C2BE3ADC70054FA50 /* SceneDelegate.swift in Sources */,
 				AEE1E83E2BE3AE580054FA50 /* AudibleViewController.swift in Sources */,

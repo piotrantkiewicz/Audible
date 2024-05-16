@@ -64,41 +64,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whyWeSleep" translatesAutoresizingMaskIntoConstraints="NO" id="uyP-xA-SQA">
-                                <rect key="frame" x="89" y="113" width="215" height="215"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="215" id="ZGW-HC-sUt"/>
-                                    <constraint firstAttribute="width" constant="215" id="s6C-E4-1wE"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why We Sleep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6a-gv-wYl">
-                                <rect key="frame" x="133.66666666666666" y="344" width="125.99999999999997" height="22"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlocking the Power of Sleep and Dreams" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbE-wR-ojX">
-                                <rect key="frame" x="50" y="378" width="293" height="40.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" red="0.35686274509803922" green="0.35686274509803922" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zu6-j0-4aO">
-                                <rect key="frame" x="20" y="450.66666666666669" width="353" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="JBF-Pe-ACO"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Play" subtitle="">
-                                    <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.9137254901960784" green="0.96470588235294119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="playButton:" destination="4W1-jT-UsS" eventType="touchUpInside" id="b2p-dv-lk1"/>
-                                    <action selector="playTapped:" destination="4W1-jT-UsS" eventType="touchUpInside" id="VSv-Nu-AEf"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lIt-mS-jKl">
                                 <rect key="frame" x="8" y="36" width="52" height="44"/>
                                 <constraints>
@@ -111,7 +76,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zj9-kM-iKQ">
-                                <rect key="frame" x="0.0" y="503.66666666666674" width="393" height="314.33333333333326"/>
+                                <rect key="frame" x="0.0" y="80" width="393" height="738"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -119,30 +84,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="leading" secondItem="QWp-TP-PXQ" secondAttribute="leading" constant="8" id="1Zc-0X-AEM"/>
-                            <constraint firstItem="xbE-wR-ojX" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" constant="50" id="4hw-rn-KlB"/>
-                            <constraint firstItem="uyP-xA-SQA" firstAttribute="top" secondItem="3kX-8D-zl0" secondAttribute="top" constant="54" id="5SP-Hv-uTn"/>
-                            <constraint firstItem="uyP-xA-SQA" firstAttribute="centerX" secondItem="QWp-TP-PXQ" secondAttribute="centerX" id="6Ci-XJ-Yb0"/>
-                            <constraint firstItem="zj9-kM-iKQ" firstAttribute="top" secondItem="Zu6-j0-4aO" secondAttribute="bottom" constant="9" id="AGF-RY-bem"/>
-                            <constraint firstItem="3kX-8D-zl0" firstAttribute="trailing" secondItem="xbE-wR-ojX" secondAttribute="trailing" constant="50" id="SXi-kD-FAN"/>
-                            <constraint firstItem="xbE-wR-ojX" firstAttribute="top" secondItem="F6a-gv-wYl" secondAttribute="bottom" constant="12" id="U45-00-hN3"/>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" constant="8" id="VbX-28-MNp"/>
                             <constraint firstItem="3kX-8D-zl0" firstAttribute="bottom" secondItem="zj9-kM-iKQ" secondAttribute="bottom" id="Vs5-9b-cWa"/>
-                            <constraint firstItem="F6a-gv-wYl" firstAttribute="top" secondItem="uyP-xA-SQA" secondAttribute="bottom" constant="16" id="XPB-ql-Nsw"/>
-                            <constraint firstItem="F6a-gv-wYl" firstAttribute="centerX" secondItem="QWp-TP-PXQ" secondAttribute="centerX" id="cKq-X8-Jfp"/>
                             <constraint firstItem="3kX-8D-zl0" firstAttribute="trailing" secondItem="zj9-kM-iKQ" secondAttribute="trailing" id="dcW-Me-VX7"/>
-                            <constraint firstItem="Zu6-j0-4aO" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" constant="20" id="h5O-bR-AZc"/>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="top" secondItem="QWp-TP-PXQ" secondAttribute="top" constant="36" id="nhe-0E-t24"/>
                             <constraint firstItem="zj9-kM-iKQ" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" id="q8u-hw-ZRg"/>
-                            <constraint firstItem="Zu6-j0-4aO" firstAttribute="top" secondItem="xbE-wR-ojX" secondAttribute="bottom" constant="32" id="td4-27-GaO"/>
-                            <constraint firstItem="3kX-8D-zl0" firstAttribute="trailing" secondItem="Zu6-j0-4aO" secondAttribute="trailing" constant="20" id="uk9-EW-ub3"/>
+                            <constraint firstItem="zj9-kM-iKQ" firstAttribute="top" secondItem="lIt-mS-jKl" secondAttribute="bottom" id="r9Z-Sq-IYd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="descriptionLbl" destination="xbE-wR-ojX" id="VeS-dK-ouh"/>
-                        <outlet property="imageView" destination="uyP-xA-SQA" id="DUD-8n-DCq"/>
-                        <outlet property="playButton" destination="Zu6-j0-4aO" id="1rv-Gd-Vf5"/>
                         <outlet property="tableView" destination="zj9-kM-iKQ" id="A58-5C-Ogk"/>
-                        <outlet property="titleLbl" destination="F6a-gv-wYl" id="qPn-79-GZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddu-MR-Gba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -204,7 +155,6 @@
     </scenes>
     <resources>
         <image name="exit" width="28" height="28"/>
-        <image name="whyWeSleep" width="215" height="215"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

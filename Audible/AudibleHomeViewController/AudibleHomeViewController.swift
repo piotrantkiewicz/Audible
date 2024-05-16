@@ -89,6 +89,7 @@ extension AudibleHomeViewController: UITableViewDataSource {
             cell.configure(with: viewModel)
             
             return cell
+            
         case .bookCovers(let viewModel):
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeBookCoversCell") as! HomeBookCoversCell
             cell.configure(with: viewModel)
