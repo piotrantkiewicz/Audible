@@ -11,6 +11,14 @@ struct AudibleList {
 class AudibleListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var addReviewView: UIView!
+    @IBOutlet weak var addReviewSafeAreaView: UIView!
+    @IBOutlet weak var addReviewSaveAreaViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var postBtn: UIButton!
     
     var audibleList: AudibleList!
     
@@ -18,6 +26,36 @@ class AudibleListViewController: UIViewController {
         super.viewDidLoad()
         
         configureTableView()
+        configureKeyboard()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private func configureKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let endFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        else { return }
+        
+        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
+            addReviewSaveAreaViewBottomConstraint.constant = 0
+            tableViewBottomConstraint.constant = 0
+        } else {
+            addReviewSaveAreaViewBottomConstraint.constant = -endFrame.height + view.safeAreaInsets.bottom - 8
+            tableViewBottomConstraint.constant = endFrame.height + 8 + addReviewSafeAreaView.frame.height
+        }
+        
+        UIView.animate(withDuration: duration) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     private func configureTableView() {
@@ -31,6 +69,15 @@ class AudibleListViewController: UIViewController {
     @IBAction func backTapped(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    @IBAction func plusBtnTapped(_ sender: Any) {
+        becomeFirstResponder()
+    }
+    
+    @IBAction func postBtnTapped(_ sender: Any) {
+    }
+    
+    
 }
 
 extension AudibleListViewController: UITableViewDataSource {

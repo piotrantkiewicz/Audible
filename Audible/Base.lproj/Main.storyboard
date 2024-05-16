@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,29 +77,94 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zj9-kM-iKQ">
-                                <rect key="frame" x="0.0" y="80" width="393" height="738"/>
+                                <rect key="frame" x="0.0" y="80" width="393" height="772"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="da1-BN-DZG">
+                                <rect key="frame" x="0.0" y="766" width="393" height="86"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fY-rI-GbG">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBZ-rK-pC9">
+                                                <rect key="frame" x="4" y="4" width="44" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="Nux-4t-lzs"/>
+                                                    <constraint firstAttribute="width" constant="44" id="kvC-pt-TyB"/>
+                                                </constraints>
+                                                <color key="tintColor" name="AccentColor"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plusButton"/>
+                                                <connections>
+                                                    <action selector="plusBtnTapped:" destination="4W1-jT-UsS" eventType="touchUpInside" id="XHK-bA-3o1"/>
+                                                </connections>
+                                            </button>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Review" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-Pr-K5r">
+                                                <rect key="frame" x="60" y="15.666666666666629" width="261" height="21"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edx-7o-Z0M">
+                                                <rect key="frame" x="321" y="8.6666666666666288" width="58" height="35"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Post"/>
+                                                <connections>
+                                                    <action selector="postBtnTapped:" destination="4W1-jT-UsS" eventType="touchUpInside" id="1yI-kt-oiI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="9Bi-Pr-K5r" firstAttribute="leading" secondItem="IBZ-rK-pC9" secondAttribute="trailing" constant="12" id="0Qf-go-vMJ"/>
+                                            <constraint firstItem="9Bi-Pr-K5r" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="71T-OP-yPb"/>
+                                            <constraint firstAttribute="height" constant="52" id="PUO-A8-oTC"/>
+                                            <constraint firstItem="Edx-7o-Z0M" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="UZz-U2-qyu"/>
+                                            <constraint firstItem="Edx-7o-Z0M" firstAttribute="leading" secondItem="9Bi-Pr-K5r" secondAttribute="trailing" id="ajz-6C-wy4"/>
+                                            <constraint firstAttribute="trailing" secondItem="Edx-7o-Z0M" secondAttribute="trailing" constant="14" id="cqS-ne-D5u"/>
+                                            <constraint firstItem="IBZ-rK-pC9" firstAttribute="leading" secondItem="1fY-rI-GbG" secondAttribute="leading" constant="4" id="gBg-8a-5We"/>
+                                            <constraint firstItem="IBZ-rK-pC9" firstAttribute="centerY" secondItem="1fY-rI-GbG" secondAttribute="centerY" id="siM-hu-p1w"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="1fY-rI-GbG" firstAttribute="leading" secondItem="da1-BN-DZG" secondAttribute="leading" id="4ZY-cZ-9C5"/>
+                                    <constraint firstItem="1fY-rI-GbG" firstAttribute="top" secondItem="da1-BN-DZG" secondAttribute="top" id="BOt-7h-7q3"/>
+                                    <constraint firstAttribute="trailing" secondItem="1fY-rI-GbG" secondAttribute="trailing" id="VtM-0k-fOA"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3kX-8D-zl0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="leading" secondItem="QWp-TP-PXQ" secondAttribute="leading" constant="8" id="1Zc-0X-AEM"/>
+                            <constraint firstItem="1fY-rI-GbG" firstAttribute="bottom" secondItem="3kX-8D-zl0" secondAttribute="bottom" id="AA9-9H-hNl"/>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" constant="8" id="VbX-28-MNp"/>
-                            <constraint firstItem="3kX-8D-zl0" firstAttribute="bottom" secondItem="zj9-kM-iKQ" secondAttribute="bottom" id="Vs5-9b-cWa"/>
                             <constraint firstItem="3kX-8D-zl0" firstAttribute="trailing" secondItem="zj9-kM-iKQ" secondAttribute="trailing" id="dcW-Me-VX7"/>
+                            <constraint firstAttribute="bottom" secondItem="da1-BN-DZG" secondAttribute="bottom" priority="750" id="jBx-3X-he5"/>
+                            <constraint firstAttribute="bottom" secondItem="zj9-kM-iKQ" secondAttribute="bottom" id="kxO-pf-QIe"/>
+                            <constraint firstItem="da1-BN-DZG" firstAttribute="trailing" secondItem="3kX-8D-zl0" secondAttribute="trailing" id="ky9-uX-VNx"/>
+                            <constraint firstItem="da1-BN-DZG" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" id="ngG-P9-bEP"/>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="top" secondItem="QWp-TP-PXQ" secondAttribute="top" constant="36" id="nhe-0E-t24"/>
                             <constraint firstItem="zj9-kM-iKQ" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" id="q8u-hw-ZRg"/>
                             <constraint firstItem="zj9-kM-iKQ" firstAttribute="top" secondItem="lIt-mS-jKl" secondAttribute="bottom" id="r9Z-Sq-IYd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addReviewSafeAreaView" destination="1fY-rI-GbG" id="qmz-Dl-aSJ"/>
+                        <outlet property="addReviewSaveAreaViewBottomConstraint" destination="AA9-9H-hNl" id="LBE-ZB-gRY"/>
+                        <outlet property="addReviewView" destination="da1-BN-DZG" id="pAn-C8-cEm"/>
+                        <outlet property="plusBtn" destination="IBZ-rK-pC9" id="X7R-Z3-IhZ"/>
+                        <outlet property="postBtn" destination="Edx-7o-Z0M" id="7AU-pH-hls"/>
                         <outlet property="tableView" destination="zj9-kM-iKQ" id="A58-5C-Ogk"/>
+                        <outlet property="tableViewBottomConstraint" destination="kxO-pf-QIe" id="PzV-wB-gAQ"/>
+                        <outlet property="textField" destination="9Bi-Pr-K5r" id="pfh-j6-c4u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddu-MR-Gba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="-2"/>
+            <point key="canvasLocation" x="875.57251908396938" y="-2.1126760563380285"/>
         </scene>
         <!--Audible Home View Controller-->
         <scene sceneID="ciG-fW-g8H">
@@ -155,6 +221,10 @@
     </scenes>
     <resources>
         <image name="exit" width="28" height="28"/>
+        <image name="plusButton" width="22" height="21"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
