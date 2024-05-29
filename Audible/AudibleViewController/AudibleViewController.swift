@@ -1,15 +1,51 @@
 import UIKit
 
+class AudibleViewModel {
+    
+    private let repository: BookListRepository
+    
+    var bookLists: [AudibleList] = []
+    
+    var didFetchLists: (() -> ())
+    
+    init(repository: BookListRepository = BookListRepository(), didFetchLists: @escaping (() -> ())) {
+        self.repository = repository
+        self.didFetchLists = didFetchLists
+    }
+    
+    func fetchBooks() {
+        Task {
+            do {
+                let result = try await repository.fetchBookList()
+                self.bookLists = result
+                
+                await MainActor.run {
+                    self.didFetchLists()
+                }
+                
+            } catch {
+                print(error)
+            }
+        }
+    }
+}
+
 class AudibleViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var lists: [AudibleList] = []
+    private lazy var viewModel = AudibleViewModel(
+        didFetchLists: { [weak self] in
+            self?.tableView.reloadData()
+        }
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        lists = myAudibleList()
+
         configureTableView()
+        
+        viewModel.fetchBooks()
     }
     
     func configureTableView() {
@@ -31,75 +67,6 @@ class AudibleViewController: UIViewController {
         present(audibleListViewController, animated: true)
     }
     
-    private func myAudibleList() -> [AudibleList] {
-        var lists = [AudibleList]()
-        
-        lists.append(AudibleList(
-            image: .whyWeSleep,
-            title: "Why We Sleep",
-            description: "Unlocking the Power of Sleep and Dreams",
-            reviews: whyWeSleepReviews(),
-            rating: "3.7"
-        ))
-        
-        lists.append(AudibleList(
-            image: .dopamineNation,
-            title: "Dopamine Nation",
-            description: "Finding Balance in the Age of Indulgence",
-            reviews: dopamineNationReviews(),
-            rating: "4.2"
-        ))
-        
-        lists.append(AudibleList(
-            image: .startWithWhy,
-            title: "Start with Why",
-            description: "How Great Leaders Inspire Everyone to Take Action",
-            reviews: startWithWhyReviews(),
-            rating: "4.5"
-        ))
-        
-        return lists
-    }
-    
-    private func whyWeSleepReviews() -> [String] {
-        var reviews = [String]()
-        reviews.append("Amazingly informative, unfitting reader")
-        reviews.append("In-depth sleep analysis that fails to grasp")
-        reviews.append("A must read if you want to live longer")
-        reviews.append("That Narrator!!!")
-        reviews.append("An eye-opener")
-        reviews.append("We don't sleep enough. Here's how.")
-        reviews.append("Un libro genial")
-        
-        
-        return reviews
-    }
-    
-    private func dopamineNationReviews() -> [String] {
-        var reviews = [String]()
-        reviews.append("Brilliant core message!")
-        reviews.append("super")
-        reviews.append("Nice Explanation about Addiction")
-        reviews.append("Pleasure and pain; honesty and balance")
-        reviews.append("Great Book")
-        reviews.append("A very good read with great story telling")
-        reviews.append("Verständlich, eindringlich und nachhaltig")
-        
-        return reviews
-    }
-    
-    private func startWithWhyReviews() -> [String] {
-        var reviews = [String]()
-        reviews.append("Very good message, but highly repetitive")
-        reviews.append("es wiederholt sich, aber")
-        reviews.append("amazing book")
-        reviews.append("Listen and learn")
-        reviews.append("Gut, aber hinten raus repititiv")
-        reviews.append("A worthy book.")
-        
-        return reviews
-    }
-    
     @IBAction func homeBtnTapped(_ sender: Any) {
         let audibleHomeViewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "AudibleHomeViewController") as! AudibleHomeViewController
@@ -114,7 +81,7 @@ class AudibleViewController: UIViewController {
 extension AudibleViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        lists.count
+        viewModel.bookLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -122,7 +89,7 @@ extension AudibleViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AudibleListCell") as? AudibleListCell
         else { return UITableViewCell() }
         
-        let todoList = lists[indexPath.row]
+        let todoList = viewModel.bookLists[indexPath.row]
         
         cell.configure(with: todoList)
         cell.selectionStyle = .none
@@ -134,7 +101,7 @@ extension AudibleViewController: UITableViewDataSource {
 extension AudibleViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let todoList = lists[indexPath.row]
+        let todoList = viewModel.bookLists[indexPath.row]
         present(with: todoList)
     }
 }

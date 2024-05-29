@@ -27,6 +27,7 @@
 		AEE1E8362BE3ADC80054FA50 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AEE1E8352BE3ADC80054FA50 /* Base */; };
 		AEE1E83E2BE3AE580054FA50 /* AudibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */; };
 		AEE1E8402BE3B0880054FA50 /* AudibleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1E83F2BE3B0880054FA50 /* AudibleListViewController.swift */; };
+		AEFDD4602C0654550045C5AE /* BookListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDD45F2C0654550045C5AE /* BookListRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		AEE1E8372BE3ADC80054FA50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleViewController.swift; sourceTree = "<group>"; };
 		AEE1E83F2BE3B0880054FA50 /* AudibleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListViewController.swift; sourceTree = "<group>"; };
+		AEFDD45F2C0654550045C5AE /* BookListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		AEE1E8282BE3ADC70054FA50 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				AEFDD45E2C06540D0045C5AE /* Networking */,
 				AEFD4C192BF41B5F00CBA2EB /* AudibleHomeViewController */,
 				AEFD4C182BF41B1C00CBA2EB /* AudibleListViewController */,
 				AEFD4C172BF41B0500CBA2EB /* AudibleViewController */,
@@ -179,6 +182,14 @@
 				AE54883C2BF4BA8B005F6C17 /* AudibleHomeViewController.swift */,
 			);
 			path = AudibleHomeViewController;
+			sourceTree = "<group>";
+		};
+		AEFDD45E2C06540D0045C5AE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				AEFDD45F2C0654550045C5AE /* BookListRepository.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +279,7 @@
 				AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */,
 				AEE1E8402BE3B0880054FA50 /* AudibleListViewController.swift in Sources */,
 				AE54883D2BF4BA8B005F6C17 /* AudibleHomeViewController.swift in Sources */,
+				AEFDD4602C0654550045C5AE /* BookListRepository.swift in Sources */,
 				AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

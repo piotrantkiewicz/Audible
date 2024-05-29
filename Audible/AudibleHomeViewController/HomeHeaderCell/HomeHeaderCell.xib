@@ -31,9 +31,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Vwe-J2-ce2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PyL-nn-A5i"/>
-                    <constraint firstAttribute="bottom" secondItem="OnU-aK-vwm" secondAttribute="bottom" id="i9f-33-8vF"/>
                     <constraint firstItem="OnU-aK-vwm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="m4l-sm-lXP"/>
                     <constraint firstItem="Vwe-J2-ce2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xnP-QN-aZ2"/>
+                    <constraint firstAttribute="bottom" secondItem="OnU-aK-vwm" secondAttribute="bottom" id="zP9-ko-wuH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
