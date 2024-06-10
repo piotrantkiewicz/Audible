@@ -1,13 +1,5 @@
 import UIKit
 
-struct AudibleList {
-    let image: UIImage
-    let title: String
-    let description: String
-    var reviews: [String]
-    let rating: String
-}
-
 class AudibleListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,7 +12,7 @@ class AudibleListViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var postBtn: UIButton!
     
-    var audibleList: AudibleList!
+    var book: Book!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +79,7 @@ class AudibleListViewController: UIViewController {
             self.postBtn.alpha = isKeyboardHidden ? 0 : 1
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.tableView.scrollToRow(at: IndexPath(row: self.audibleList.reviews.count - 1, section: 1), at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: self.book.reviews.count - 1, section: 1), at: .bottom, animated: true)
         }
     }
     
@@ -111,9 +103,9 @@ class AudibleListViewController: UIViewController {
         guard isNewReviewValid, let text = textField.text else { return }
         
         let itemTrimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        audibleList.reviews.append(itemTrimmed)
+        book.reviews.append(itemTrimmed)
         
-        let indexPath = IndexPath(row: audibleList.reviews.count - 1, section: 1)
+        let indexPath = IndexPath(row: book.reviews.count - 1, section: 1)
         tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         
@@ -136,7 +128,7 @@ extension AudibleListViewController: UITableViewDataSource {
         case 0:
             return 1
         default:
-            return audibleList.reviews.count
+            return book.reviews.count
         }
     }
     
@@ -145,14 +137,14 @@ extension AudibleListViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudibleBookDetailsCell") as? AudibleBookDetailsCell else { return UITableViewCell() }
-            cell.configure(with: audibleList)
+            cell.configure(with: book)
             
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudibleListItemCell") as? AudibleListItemCell
             else { return UITableViewCell() }
             
-            let review = audibleList.reviews[indexPath.row]
+            let review = book.reviews[indexPath.row]
             cell.configure(with: review)
             
             return cell

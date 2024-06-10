@@ -7,7 +7,7 @@ struct HomeHeaderViewModel {
 
 struct BookCoversViewModel {
     let title: String
-    let bookCovers: [BookCover]
+    let bookCovers: [Book]
 }
 
 class AudibleHomeViewController: UIViewController {
@@ -40,9 +40,9 @@ class AudibleHomeViewController: UIViewController {
         let similarTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Similar titles you have listened to",
             bookCovers: [
-                BookCover(image: .howWeLearn, title: "How We Learn", authors: ["Stanislas Dehaene"]),
-                BookCover(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", authors: ["Daniel Kahneman"]),
-                BookCover(image: .talkingToStrangers, title: "Talking to Strangers", authors: ["Malcolm Gladwell"])
+                Book(image: .howWeLearn, title: "How We Learn", description: "", authors: ["Stanislas Dehaene"], reviews: [], rating: ""),
+                Book(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", description: "", authors: ["Daniel Kahneman"], reviews: [], rating: ""),
+                Book(image: .talkingToStrangers, title: "Talking to Strangers", description: "", authors: ["Malcolm Gladwell"], reviews: [], rating: "")
             ]
         ))
         
@@ -51,10 +51,10 @@ class AudibleHomeViewController: UIViewController {
         let popularTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Popular titles that you could also enjoy",
             bookCovers: [
-                BookCover(image: .unstressable, title: "Unstressable", authors: ["Mo Gawdat", "Alice Law"]),
-                BookCover(image: .liberatedLove, title: "Liberated Love", authors: ["Mark Groves", "Kylie McBeath"]),
-                BookCover(image: .kokoro, title: "Kokoro", authors: ["Beth Kempton"]),
-                BookCover(image: .threeSummers, title: "Three Summers", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"])
+                Book(image: .unstressable, title: "Unstressable", description: "", authors: ["Mo Gawdat", "Alice Law"], reviews: [], rating: ""),
+                Book(image: .liberatedLove, title: "Liberated Love", description: "", authors: ["Mark Groves", "Kylie McBeath"], reviews: [], rating: ""),
+                Book(image: .kokoro, title: "Kokoro", description: "", authors: ["Beth Kempton"], reviews: [], rating: ""),
+                Book(image: .threeSummers, title: "Three Summers", description: "", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"], reviews: [], rating: "")
             ]
         ))
         

@@ -5,7 +5,7 @@ class HomeBookCoversCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var bookCovers: [BookCover] = []
+    var bookCovers: [Book] = []
     
     override func awakeFromNib() {
         super.awakeFromNib()

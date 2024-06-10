@@ -21,7 +21,7 @@ class BookListRepository {
     
     typealias BookListRespone = [String: BookListDTO]
     
-    func fetchBookList() async throws -> [AudibleList] {
+    func fetchBookList() async throws -> [Book] {
         let url = URL(string: "https://audible-194a7-default-rtdb.europe-west1.firebasedatabase.app/books.json")!
         
         let request = URLRequest(url: url)
@@ -33,8 +33,8 @@ class BookListRepository {
         return toDomain(decoded)
     }
     
-    private func toDomain(_ bookListResponse: BookListRespone) -> [AudibleList] {
-        var result = [AudibleList]()
+    private func toDomain(_ bookListResponse: BookListRespone) -> [Book] {
+        var result = [Book]()
         
         for (_, bookListDTO) in bookListResponse {
             result.append(bookListDTO.toDomain)
@@ -45,11 +45,12 @@ class BookListRepository {
 }
 
 extension BookListDTO {
-    var toDomain: AudibleList {
-        AudibleList(
+    var toDomain: Book {
+        Book(
             image: UIImage(named: image) ?? UIImage(),
             title: self.title,
             description: self.description,
+            authors: [],
             reviews: reviews,
             rating: self.rating
         )

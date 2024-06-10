@@ -4,7 +4,7 @@ class AudibleViewModel {
     
     private let repository: BookListRepository
     
-    var bookLists: [AudibleList] = []
+    var bookLists: [Book] = []
     
     var didFetchLists: (() -> ())
     
@@ -56,13 +56,13 @@ class AudibleViewController: UIViewController {
         tableView.rowHeight = 44
     }
     
-    func present(with audibleList: AudibleList) {
+    func present(with book: Book) {
         let audibleListViewController = UIStoryboard(name: "Main", bundle: nil)
             .instantiateViewController(withIdentifier: "AudibleListViewController") as! AudibleListViewController
         
         audibleListViewController.modalPresentationStyle = .fullScreen
         
-        audibleListViewController.audibleList = audibleList
+        audibleListViewController.book = book
         
         present(audibleListViewController, animated: true)
     }

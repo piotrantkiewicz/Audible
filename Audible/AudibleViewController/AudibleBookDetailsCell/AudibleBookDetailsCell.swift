@@ -15,9 +15,9 @@ class AudibleBookDetailsCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    func configure(with audibleList: AudibleList) {
-        bookImageView.image = audibleList.image
-        titleLbl.text = audibleList.title
-        subTitleLbl.text = audibleList.description
+    func configure(with book: Book) {
+        bookImageView.image = book.image
+        titleLbl.text = book.title
+        subTitleLbl.text = book.description
     }
 }
