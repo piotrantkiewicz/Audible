@@ -19,5 +19,28 @@ class AudibleBookDetailsCell: UITableViewCell {
         bookImageView.image = book.image
         titleLbl.text = book.title
         subTitleLbl.text = book.description
+        configureButton(with: book)
+    }
+    
+    private func configureButton(with book: Book) {
+        if book.isInLibrary {
+            playButton.setTitle("Play", for: .normal)
+            playButton.setTitleColor(.black, for: .normal)
+            playButton.backgroundColor = .secondaryButton
+        } else {
+            playButton.setTitle(configurePurchaseButtonTitle(with: book.priceCredit), for: .normal)
+            playButton.setTitleColor(.white, for: .normal)
+            playButton.backgroundColor  = .primaryButton
+        }
+        
+        playButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+    }
+    
+    private func configurePurchaseButtonTitle(with credits: Int) -> String {
+        if credits <= 1 {
+            return "Purchase (\(credits) credit)"
+        } else {
+            return "Purchase (\(credits) credits)"
+        }
     }
 }

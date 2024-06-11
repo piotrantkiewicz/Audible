@@ -1,35 +1,5 @@
 import UIKit
 
-class AudibleViewModel {
-    
-    private let repository: BookListRepository
-    
-    var bookLists: [Book] = []
-    
-    var didFetchLists: (() -> ())
-    
-    init(repository: BookListRepository = BookListRepository(), didFetchLists: @escaping (() -> ())) {
-        self.repository = repository
-        self.didFetchLists = didFetchLists
-    }
-    
-    func fetchBooks() {
-        Task {
-            do {
-                let result = try await repository.fetchBookList()
-                self.bookLists = result
-                
-                await MainActor.run {
-                    self.didFetchLists()
-                }
-                
-            } catch {
-                print(error)
-            }
-        }
-    }
-}
-
 class AudibleViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!

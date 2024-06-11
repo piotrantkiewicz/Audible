@@ -40,9 +40,9 @@ class AudibleHomeViewController: UIViewController {
         let similarTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Similar titles you have listened to",
             bookCovers: [
-                Book(image: .howWeLearn, title: "How We Learn", description: "How We Learn as it's meant to be heard", authors: ["Stanislas Dehaene"], reviews: [], rating: "4.3"),
-                Book(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", description: "", authors: ["Daniel Kahneman"], reviews: [], rating: ""),
-                Book(image: .talkingToStrangers, title: "Talking to Strangers", description: "", authors: ["Malcolm Gladwell"], reviews: [], rating: "")
+                Book(image: .howWeLearn, title: "How We Learn", description: "How We Learn as it's meant to be heard", authors: ["Stanislas Dehaene"], reviews: [], rating: "4.3", priceCredit: 1),
+                Book(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", description: "", authors: ["Daniel Kahneman"], reviews: [], rating: "", priceCredit: 2),
+                Book(image: .talkingToStrangers, title: "Talking to Strangers", description: "", authors: ["Malcolm Gladwell"], reviews: [], rating: "", priceCredit: 3)
             ]
         ))
         
@@ -51,10 +51,10 @@ class AudibleHomeViewController: UIViewController {
         let popularTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Popular titles that you could also enjoy",
             bookCovers: [
-                Book(image: .unstressable, title: "Unstressable", description: "", authors: ["Mo Gawdat", "Alice Law"], reviews: [], rating: ""),
-                Book(image: .liberatedLove, title: "Liberated Love", description: "", authors: ["Mark Groves", "Kylie McBeath"], reviews: [], rating: ""),
-                Book(image: .kokoro, title: "Kokoro", description: "", authors: ["Beth Kempton"], reviews: [], rating: ""),
-                Book(image: .threeSummers, title: "Three Summers", description: "", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"], reviews: [], rating: "")
+                Book(image: .unstressable, title: "Unstressable", description: "", authors: ["Mo Gawdat", "Alice Law"], reviews: [], rating: "", priceCredit: 4),
+                Book(image: .liberatedLove, title: "Liberated Love", description: "", authors: ["Mark Groves", "Kylie McBeath"], reviews: [], rating: "", priceCredit: 5),
+                Book(image: .kokoro, title: "Kokoro", description: "", authors: ["Beth Kempton"], reviews: [], rating: "", priceCredit: 6),
+                Book(image: .threeSummers, title: "Three Summers", description: "", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"], reviews: [], rating: "", priceCredit: 7)
             ]
         ))
         

@@ -22,6 +22,8 @@ class AudibleListViewController: UIViewController {
         configureAddReviewView()
         configureTextField()
         setAddNewReviewButton(enabled: false)
+        
+        configureAddReviewField(with: book)
     }
     
     deinit {
@@ -51,6 +53,10 @@ class AudibleListViewController: UIViewController {
         addReviewView.layer.shadowRadius = 18.2
         addReviewView.layer.shadowPath = UIBezierPath(roundedRect: addReviewView.bounds, cornerRadius: addReviewView.layer.cornerRadius).cgPath
         addReviewView.layer.shadowOpacity = 1
+    }
+    
+    private func configureAddReviewField(with book: Book) {
+        addReviewView.isHidden = !book.isInLibrary
     }
     
     private func configureKeyboard() {

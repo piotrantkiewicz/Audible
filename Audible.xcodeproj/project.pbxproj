@@ -15,6 +15,7 @@
 		AE54884B2BF4D085005F6C17 /* BookCoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */; };
 		AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5488492BF4D085005F6C17 /* BookCoverCell.swift */; };
 		AEB2A6962C122FB2009C871A /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB2A6952C122FB1009C871A /* Book.swift */; };
+		AEC5C3AE2C1867FB002C1E74 /* AudibleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC5C3AD2C1867FB002C1E74 /* AudibleViewModel.swift */; };
 		AED27FC22BF6059900816B36 /* AudibleBookDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED27FC02BF6059900816B36 /* AudibleBookDetailsCell.swift */; };
 		AED27FC32BF6059900816B36 /* AudibleBookDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AED27FC12BF6059900816B36 /* AudibleBookDetailsCell.xib */; };
 		AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */; };
@@ -40,6 +41,7 @@
 		AE5488492BF4D085005F6C17 /* BookCoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCoverCell.swift; sourceTree = "<group>"; };
 		AE54884A2BF4D085005F6C17 /* BookCoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCoverCell.xib; sourceTree = "<group>"; };
 		AEB2A6952C122FB1009C871A /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		AEC5C3AD2C1867FB002C1E74 /* AudibleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleViewModel.swift; sourceTree = "<group>"; };
 		AED27FC02BF6059900816B36 /* AudibleBookDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleBookDetailsCell.swift; sourceTree = "<group>"; };
 		AED27FC12BF6059900816B36 /* AudibleBookDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudibleBookDetailsCell.xib; sourceTree = "<group>"; };
 		AEDC7DF22BE4F7C900FA7D2B /* AudibleListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleListCell.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				AED27FBF2BF6056600816B36 /* AudibleBookDetailsCell */,
 				AEDC7DF12BE4F7AD00FA7D2B /* AudibleListCell */,
 				AEE1E83D2BE3AE580054FA50 /* AudibleViewController.swift */,
+				AEC5C3AD2C1867FB002C1E74 /* AudibleViewModel.swift */,
 			);
 			path = AudibleViewController;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				AE54884C2BF4D085005F6C17 /* BookCoverCell.swift in Sources */,
 				AEE1E8402BE3B0880054FA50 /* AudibleListViewController.swift in Sources */,
 				AE54883D2BF4BA8B005F6C17 /* AudibleHomeViewController.swift in Sources */,
+				AEC5C3AE2C1867FB002C1E74 /* AudibleViewModel.swift in Sources */,
 				AEFDD4602C0654550045C5AE /* BookListRepository.swift in Sources */,
 				AEDC7DF42BE4F7C900FA7D2B /* AudibleListCell.swift in Sources */,
 			);

@@ -6,15 +6,7 @@ struct BookListDTO: Codable {
     let rating: String
     let image: String
     let reviews: [String]
-    
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.title = try container.decode(String.self, forKey: .title)
-        self.description = try container.decode(String.self, forKey: .description)
-        self.rating = try container.decode(String.self, forKey: .rating)
-        self.image = try container.decode(String.self, forKey: .image)
-        self.reviews = try container.decode([String].self, forKey: .reviews)
-    }
+    let priceCredit: Int
 }
 
 class BookListRepository {
@@ -52,7 +44,9 @@ extension BookListDTO {
             description: self.description,
             authors: [],
             reviews: reviews,
-            rating: self.rating
+            rating: self.rating, 
+            priceCredit: priceCredit,
+            isInLibrary: true
         )
     }
 }
