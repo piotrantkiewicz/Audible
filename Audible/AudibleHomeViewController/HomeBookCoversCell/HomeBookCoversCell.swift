@@ -7,6 +7,8 @@ class HomeBookCoversCell: UITableViewCell {
     
     var bookCovers: [Book] = []
     
+    var didSelectBook: ((Book) -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -50,5 +52,13 @@ extension HomeBookCoversCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: 180, height: 231)
+    }
+}
+
+extension HomeBookCoversCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let book = bookCovers[indexPath.item]
+        
+        didSelectBook?(book)
     }
 }

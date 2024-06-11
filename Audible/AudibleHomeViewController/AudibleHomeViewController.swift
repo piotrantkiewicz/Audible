@@ -40,7 +40,7 @@ class AudibleHomeViewController: UIViewController {
         let similarTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Similar titles you have listened to",
             bookCovers: [
-                Book(image: .howWeLearn, title: "How We Learn", description: "", authors: ["Stanislas Dehaene"], reviews: [], rating: ""),
+                Book(image: .howWeLearn, title: "How We Learn", description: "How We Learn as it's meant to be heard", authors: ["Stanislas Dehaene"], reviews: [], rating: "4.3"),
                 Book(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", description: "", authors: ["Daniel Kahneman"], reviews: [], rating: ""),
                 Book(image: .talkingToStrangers, title: "Talking to Strangers", description: "", authors: ["Malcolm Gladwell"], reviews: [], rating: "")
             ]
@@ -94,7 +94,25 @@ extension AudibleHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeBookCoversCell") as! HomeBookCoversCell
             cell.configure(with: viewModel)
             
+            cell.didSelectBook = { [weak self] book in
+                self?.present(book)
+    
+            }
+            
             return cell
         }
+    }
+}
+
+extension AudibleHomeViewController: UITableViewDelegate {
+    private func present(_ book: Book) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "AudibleListViewController") as! AudibleListViewController
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        viewController.book = book
+        
+        present(viewController, animated: true)
     }
 }
