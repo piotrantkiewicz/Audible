@@ -7,6 +7,10 @@ class AudibleBookDetailsCell: UITableViewCell {
     @IBOutlet weak var subTitleLbl: UILabel!
     @IBOutlet weak var playButton: UIButton!
     
+    var didTapPurchase: (()->())?
+    
+    private var book: Book?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -16,7 +20,9 @@ class AudibleBookDetailsCell: UITableViewCell {
     }
     
     func configure(with book: Book) {
-        bookImageView.image = book.image
+        self.book = book
+        
+        bookImageView.image = UIImage(named: book.imageName)
         titleLbl.text = book.title
         subTitleLbl.text = book.description
         configureButton(with: book)
@@ -42,5 +48,12 @@ class AudibleBookDetailsCell: UITableViewCell {
         } else {
             return "Purchase (\(credits) credits)"
         }
+    }
+    
+    @IBAction func didTapPlayButton(_ sender: Any) {
+        
+        guard let book, !book.isInLibrary else { return }
+        
+        didTapPurchase?()
     }
 }

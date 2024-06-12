@@ -1,5 +1,32 @@
 import UIKit
 
+class AudibleListViewModel {
+    
+    var book: Book
+    
+    private let repository: BookListRepository
+    
+    init(
+        book: Book,
+        repository: BookListRepository = BookListRepository()
+    ) {
+        self.book = book
+        self.repository = repository
+    }
+    
+    func purchaseBook() {
+        guard !book.isInLibrary else { return }
+        
+        Task {
+            do {
+                try await repository.addBookToLibary(book)
+            } catch {
+                print(error)
+            }
+        }
+    }
+}
+
 class AudibleListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -10,9 +37,9 @@ class AudibleListViewController: UIViewController {
     @IBOutlet weak var addReviewSaveAreaViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var plusBtn: UIButton!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var postBtn: UIButton!
+    @IBOutlet weak var postBtn: UIButton! 
     
-    var book: Book!
+    var viewModel: AudibleListViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +50,7 @@ class AudibleListViewController: UIViewController {
         configureTextField()
         setAddNewReviewButton(enabled: false)
         
-        configureAddReviewField(with: book)
+        configureAddReviewField(with: viewModel.book)
     }
     
     deinit {
@@ -85,7 +112,7 @@ class AudibleListViewController: UIViewController {
             self.postBtn.alpha = isKeyboardHidden ? 0 : 1
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.tableView.scrollToRow(at: IndexPath(row: self.book.reviews.count - 1, section: 1), at: .bottom, animated: true)
+            self.tableView.scrollToRow(at: IndexPath(row: self.viewModel.book.reviews.count - 1, section: 1), at: .bottom, animated: true)
         }
     }
     
@@ -109,9 +136,9 @@ class AudibleListViewController: UIViewController {
         guard isNewReviewValid, let text = textField.text else { return }
         
         let itemTrimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        book.reviews.append(itemTrimmed)
+        viewModel.book.reviews.append(itemTrimmed)
         
-        let indexPath = IndexPath(row: book.reviews.count - 1, section: 1)
+        let indexPath = IndexPath(row: viewModel.book.reviews.count - 1, section: 1)
         tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         
@@ -134,7 +161,7 @@ extension AudibleListViewController: UITableViewDataSource {
         case 0:
             return 1
         default:
-            return book.reviews.count
+            return viewModel.book.reviews.count
         }
     }
     
@@ -143,18 +170,25 @@ extension AudibleListViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudibleBookDetailsCell") as? AudibleBookDetailsCell else { return UITableViewCell() }
-            cell.configure(with: book)
+            cell.configure(with: viewModel.book)
+            cell.didTapPurchase = { [weak self] in
+                self?.didTapPurchase()
+            }
             
             return cell
         default:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "AudibleListItemCell") as? AudibleListItemCell
             else { return UITableViewCell() }
             
-            let review = book.reviews[indexPath.row]
+            let review = viewModel.book.reviews[indexPath.row]
             cell.configure(with: review)
             
             return cell
         }
+    }
+    
+    private func didTapPurchase() {
+        viewModel.purchaseBook()
     }
 }
 

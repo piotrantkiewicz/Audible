@@ -11,7 +11,7 @@ class BookCoverCell: UICollectionViewCell {
     }
     
     func configure(with book: Book) {
-        imageView.image = book.image
+        imageView.image = UIImage(named: book.imageName)
         titleLbl.text = book.title
         authorLbl.text = authorsSubtitle(from: book.authors)
     }

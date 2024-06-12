@@ -1,7 +1,7 @@
 import UIKit
 
 struct Book {
-    let image: UIImage
+    let imageName: String
     let title: String
     let description: String
     let authors: [String]
@@ -11,7 +11,7 @@ struct Book {
     let priceCredit: Int
     
     init(
-        image: UIImage,
+        imageName: String,
         title: String,
         description: String,
         authors: [String],
@@ -20,7 +20,7 @@ struct Book {
         priceCredit: Int,
         isInLibrary: Bool = false
     ) {
-        self.image = image
+        self.imageName = imageName
         self.title = title
         self.description = description
         self.authors = authors

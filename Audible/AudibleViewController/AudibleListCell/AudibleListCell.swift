@@ -6,7 +6,7 @@ class AudibleListCell: UITableViewCell {
     @IBOutlet weak var titleLbl: UILabel!
     
     func configure(with book: Book) {
-        iconImageView.image = book.image
+        iconImageView.image = UIImage(named: book.imageName)
         titleLbl.text = "\(book.title) (\(book.rating))"
     }
 }

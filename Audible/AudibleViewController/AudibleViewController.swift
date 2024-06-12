@@ -32,7 +32,7 @@ class AudibleViewController: UIViewController {
         
         audibleListViewController.modalPresentationStyle = .fullScreen
         
-        audibleListViewController.book = book
+        audibleListViewController.viewModel = AudibleListViewModel(book: book)
         
         present(audibleListViewController, animated: true)
     }
