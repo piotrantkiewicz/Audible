@@ -1,11 +1,5 @@
 import UIKit
 
-struct BookCover {
-    let image: UIImage
-    let title: String
-    let authors: [String]
-}
-
 class BookCoverCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -16,10 +10,10 @@ class BookCoverCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configure(with bookCover: BookCover) {
-        imageView.image = bookCover.image
-        titleLbl.text = bookCover.title
-        authorLbl.text = authorsSubtitle(from: bookCover.authors)
+    func configure(with book: Book) {
+        imageView.image = UIImage(named: book.imageName)
+        titleLbl.text = book.title
+        authorLbl.text = authorsSubtitle(from: book.authors)
     }
     
     private func authorsSubtitle(from authors: [String]) -> String {

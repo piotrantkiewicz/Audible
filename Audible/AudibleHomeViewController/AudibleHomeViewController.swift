@@ -7,7 +7,7 @@ struct HomeHeaderViewModel {
 
 struct BookCoversViewModel {
     let title: String
-    let bookCovers: [BookCover]
+    let bookCovers: [Book]
 }
 
 class AudibleHomeViewController: UIViewController {
@@ -40,9 +40,9 @@ class AudibleHomeViewController: UIViewController {
         let similarTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Similar titles you have listened to",
             bookCovers: [
-                BookCover(image: .howWeLearn, title: "How We Learn", authors: ["Stanislas Dehaene"]),
-                BookCover(image: .thinkingFastAndSlow, title: "Thinking, Fast and Slow", authors: ["Daniel Kahneman"]),
-                BookCover(image: .talkingToStrangers, title: "Talking to Strangers", authors: ["Malcolm Gladwell"])
+                Book(imageName: "howWeLearn", title: "How We Learn", description: "How We Learn as it's meant to be heard", authors: ["Stanislas Dehaene"], reviews: [], rating: "4.3", priceCredit: 1),
+                Book(imageName: "thinkingFastAndSlow", title: "Thinking, Fast and Slow", description: "", authors: ["Daniel Kahneman"], reviews: [], rating: "", priceCredit: 2),
+                Book(imageName: "talkingToStrangers", title: "Talking to Strangers", description: "", authors: ["Malcolm Gladwell"], reviews: [], rating: "", priceCredit: 3)
             ]
         ))
         
@@ -51,10 +51,10 @@ class AudibleHomeViewController: UIViewController {
         let popularTitlesRow = Row.bookCovers(BookCoversViewModel(
             title: "Popular titles that you could also enjoy",
             bookCovers: [
-                BookCover(image: .unstressable, title: "Unstressable", authors: ["Mo Gawdat", "Alice Law"]),
-                BookCover(image: .liberatedLove, title: "Liberated Love", authors: ["Mark Groves", "Kylie McBeath"]),
-                BookCover(image: .kokoro, title: "Kokoro", authors: ["Beth Kempton"]),
-                BookCover(image: .threeSummers, title: "Three Summers", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"])
+                Book(imageName: "unstressable", title: "Unstressable", description: "", authors: ["Mo Gawdat", "Alice Law"], reviews: [], rating: "", priceCredit: 4),
+                Book(imageName: "liberatedLove", title: "Liberated Love", description: "", authors: ["Mark Groves", "Kylie McBeath"], reviews: [], rating: "", priceCredit: 5),
+                Book(imageName: "kokoro", title: "Kokoro", description: "", authors: ["Beth Kempton"], reviews: [], rating: "", priceCredit: 6),
+                Book(imageName: "threeSummers", title: "Three Summers", description: "", authors: ["Amra Sabic-El-Rayess", "Laura L. Sullivan"], reviews: [], rating: "", priceCredit: 7)
             ]
         ))
         
@@ -94,7 +94,25 @@ extension AudibleHomeViewController: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeBookCoversCell") as! HomeBookCoversCell
             cell.configure(with: viewModel)
             
+            cell.didSelectBook = { [weak self] book in
+                self?.present(book)
+    
+            }
+            
             return cell
         }
+    }
+}
+
+extension AudibleHomeViewController: UITableViewDelegate {
+    private func present(_ book: Book) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil)
+            .instantiateViewController(withIdentifier: "AudibleListViewController") as! AudibleListViewController
+        
+        viewController.modalPresentationStyle = .fullScreen
+        
+        viewController.viewModel = AudibleListViewModel(book: book)
+        
+        present(viewController, animated: true)
     }
 }
