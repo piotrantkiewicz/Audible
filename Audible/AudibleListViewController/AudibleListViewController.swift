@@ -14,12 +14,27 @@ class AudibleListViewModel {
         self.repository = repository
     }
     
+    func isNewReviewValid(text: String) -> Bool { !text.isEmpty && text.count >= 4 }
+
     func purchaseBook() {
         guard !book.isInLibrary else { return }
         
         Task {
             do {
                 try await repository.addBookToLibary(book)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    func postReview(with content: String) {
+        guard isNewReviewValid(text: content) else { return }
+        book.reviews.append(.init(content: content))
+        
+        Task {
+            do {
+                try await repository.postReview(content, to: book)
             } catch {
                 print(error)
             }
@@ -61,13 +76,8 @@ class AudibleListViewController: UIViewController {
         textField.addTarget(self, action: #selector(didChangeText), for: .editingChanged)
     }
     
-    private var isNewReviewValid: Bool {
-        guard let text = textField.text else { return false }
-        return !text.isEmpty && text.count >= 4
-    }
-    
     @objc private func didChangeText() {
-        setAddNewReviewButton(enabled: isNewReviewValid)
+        setAddNewReviewButton(enabled: viewModel.isNewReviewValid(text: textField.text ?? ""))
     }
     private func setAddNewReviewButton(enabled isEnabled:Bool) {
         postBtn.isPointerInteractionEnabled = isEnabled
@@ -112,6 +122,8 @@ class AudibleListViewController: UIViewController {
             self.postBtn.alpha = isKeyboardHidden ? 0 : 1
             self.view.layoutIfNeeded()
         } completion: { _ in
+            guard !self.viewModel.book.reviews.isEmpty else { return }
+                    
             self.tableView.scrollToRow(at: IndexPath(row: self.viewModel.book.reviews.count - 1, section: 1), at: .bottom, animated: true)
         }
     }
@@ -133,10 +145,9 @@ class AudibleListViewController: UIViewController {
     }
     
     @IBAction func postBtnTapped(_ sender: Any) {
-        guard isNewReviewValid, let text = textField.text else { return }
+        guard let text = textField.text else { return }
         
-        let itemTrimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        viewModel.book.reviews.append(itemTrimmed)
+        viewModel.postReview(with: text)
         
         let indexPath = IndexPath(row: viewModel.book.reviews.count - 1, section: 1)
         tableView.insertRows(at: [indexPath], with: .automatic)
@@ -181,7 +192,7 @@ extension AudibleListViewController: UITableViewDataSource {
             else { return UITableViewCell() }
             
             let review = viewModel.book.reviews[indexPath.row]
-            cell.configure(with: review)
+            cell.configure(with: review.content)
             
             return cell
         }
