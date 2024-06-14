@@ -87,10 +87,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="52"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBZ-rK-pC9">
-                                                <rect key="frame" x="4" y="4" width="44" height="44"/>
+                                                <rect key="frame" x="4" y="4" width="46" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="Nux-4t-lzs"/>
-                                                    <constraint firstAttribute="width" constant="44" id="kvC-pt-TyB"/>
                                                 </constraints>
                                                 <color key="tintColor" name="AccentColor"/>
                                                 <state key="normal" title="Button"/>
@@ -100,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Review" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Bi-Pr-K5r">
-                                                <rect key="frame" x="60" y="15.666666666666629" width="271" height="21"/>
+                                                <rect key="frame" x="62" y="15.666666666666629" width="269" height="21"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -108,7 +107,6 @@
                                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Edx-7o-Z0M">
                                                 <rect key="frame" x="331" y="4" width="60" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="0Sv-a7-gZX"/>
                                                     <constraint firstAttribute="height" constant="44" id="1HW-0M-onY"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -140,6 +138,17 @@
                                     <constraint firstAttribute="trailing" secondItem="1fY-rI-GbG" secondAttribute="trailing" id="VtM-0k-fOA"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRS-bF-e1M">
+                                <rect key="frame" x="333" y="36" width="52" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ubi-yb-es8"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="more"/>
+                                <connections>
+                                    <action selector="moreButtonTapped:" destination="4W1-jT-UsS" eventType="touchUpInside" id="oIW-cV-Lub"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3kX-8D-zl0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -154,7 +163,10 @@
                             <constraint firstItem="da1-BN-DZG" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" id="ngG-P9-bEP"/>
                             <constraint firstItem="lIt-mS-jKl" firstAttribute="top" secondItem="QWp-TP-PXQ" secondAttribute="top" constant="36" id="nhe-0E-t24"/>
                             <constraint firstItem="zj9-kM-iKQ" firstAttribute="leading" secondItem="3kX-8D-zl0" secondAttribute="leading" id="q8u-hw-ZRg"/>
+                            <constraint firstItem="FRS-bF-e1M" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lIt-mS-jKl" secondAttribute="trailing" constant="8" symbolic="YES" id="qDQ-WY-cZo"/>
                             <constraint firstItem="zj9-kM-iKQ" firstAttribute="top" secondItem="lIt-mS-jKl" secondAttribute="bottom" id="r9Z-Sq-IYd"/>
+                            <constraint firstItem="FRS-bF-e1M" firstAttribute="top" secondItem="lIt-mS-jKl" secondAttribute="top" id="rM8-k1-OY7"/>
+                            <constraint firstItem="3kX-8D-zl0" firstAttribute="trailing" secondItem="FRS-bF-e1M" secondAttribute="trailing" constant="8" id="tid-L3-AjC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -227,6 +239,7 @@
     </scenes>
     <resources>
         <image name="exit" width="28" height="28"/>
+        <image name="more" width="28" height="28"/>
         <image name="plusButton" width="22" height="21"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

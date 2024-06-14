@@ -12,8 +12,15 @@ class AudibleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.didFetchLists = { [weak self] in
+            self?.tableView.reloadData()
+        }
 
         configureTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         viewModel.fetchBooks()
     }
