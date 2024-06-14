@@ -43,11 +43,7 @@ class AudibleBookDetailsCell: UITableViewCell {
     }
     
     private func configurePurchaseButtonTitle(with credits: Int) -> String {
-        if credits <= 1 {
-            return "Purchase (\(credits) credit)"
-        } else {
-            return "Purchase (\(credits) credits)"
-        }
+        "Purchase (\(CreditFormatter().string(for: credits)))"
     }
     
     @IBAction func didTapPlayButton(_ sender: Any) {

@@ -40,6 +40,16 @@ class AudibleListViewModel {
             }
         }
     }
+    
+    func deleteBook() {
+        Task {
+            do {
+                try await repository.deleteBook(book)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
 class AudibleListViewController: UIViewController {
@@ -157,7 +167,42 @@ class AudibleListViewController: UIViewController {
         setAddNewReviewButton(enabled: false)
     }
     
+    @IBAction func moreButtonTapped(_ sender: Any) {
+        let sheet = UIAlertController(
+            title: "More Actions",
+            message: "What do you want to do?",
+            preferredStyle: .actionSheet
+        )
+        
+        sheet.addAction(UIAlertAction(
+            title: "Remove from library",
+            style: .destructive,
+            handler: { [weak self] _ in
+                self?.presentDeletionPrompt()
+            })
+        )
+        sheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(sheet, animated: true)
+    }
+
+    private func presentDeletionPrompt() {
+        let alert = UIAlertController(
+            title: "Are you sure?",
+            message: "Removing the book from your library will hide it from your My Books list.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            self?.didConfirmRemoval()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        self.present(alert, animated: true)
+    }
     
+    private func didConfirmRemoval() {
+        viewModel.deleteBook()
+        self.dismiss(animated: true)
+    }
 }
 
 extension AudibleListViewController: UITableViewDataSource {
@@ -199,7 +244,25 @@ extension AudibleListViewController: UITableViewDataSource {
     }
     
     private func didTapPurchase() {
+        let credits = CreditFormatter().string(for: viewModel.book.priceCredit)
+        let prompt = UIAlertController(
+            title: "Please confirm purchase",
+            message: "\(credits) will be used for this purchase",
+            preferredStyle: .alert
+        )
+        
+        prompt.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        prompt.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { [weak self] _ in
+            self?.didConfirmPurchase()
+        }))
+        
+        self.present(prompt, animated: true)
+    }
+    
+    private func didConfirmPurchase() {
         viewModel.purchaseBook()
+        configureAddReviewField(with: viewModel.book)
+        tableView.reloadData()
     }
 }
 

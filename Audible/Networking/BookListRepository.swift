@@ -59,6 +59,15 @@ class BookListRepository {
         print("Added review to book \(book.title) with review id \(decoded.name)")
     }
     
+    func deleteBook(_ book: Book) async throws {
+        var request = URLRequest(url: baseUrl.appending(path: "books/\(book.id).json"))
+        request.httpMethod = "DELETE"
+        
+        let _ = try await URLSession.shared.data(for: request)
+        
+        print("Deleted book with id \(book.id)")
+    }
+    
     private func toDomain(_ bookListResponse: BookListRespone) -> [Book] {
         var result = [Book]()
         
