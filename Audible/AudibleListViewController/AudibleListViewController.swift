@@ -8,7 +8,7 @@ class AudibleListViewModel {
     
     init(
         book: Book,
-        repository: BookListRepository = BookListRepository()
+        repository: BookListRepository = BookListRepositoryLive()
     ) {
         self.book = book
         self.repository = repository

@@ -8,7 +8,7 @@ class AudibleViewModel {
     
     var didFetchLists: (() -> ())?
     
-    init(repository: BookListRepository = BookListRepository(), didFetchLists: @escaping (() -> ())) {
+    init(repository: BookListRepository = BookListRepositoryLive(), didFetchLists: @escaping (() -> ())) {
         self.repository = repository
         self.didFetchLists = didFetchLists
     }

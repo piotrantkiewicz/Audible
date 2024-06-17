@@ -4,7 +4,14 @@ struct FirebasePostResponseDTO: Codable {
     let name: String
 }
 
-class BookListRepository {
+protocol BookListRepository {
+    func fetchBookList() async throws -> [Book]
+    func addBookToLibary(_ book: Book) async throws
+    func postReview(_ review: String, to book: Book) async throws
+    func deleteBook(_ book: Book) async throws
+}
+
+class BookListRepositoryLive: BookListRepository {
     
     typealias BookListRespone = [String: BookListDTO]
     
